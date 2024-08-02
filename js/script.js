@@ -45,6 +45,19 @@ ScrollReveal().reveal('.home-img, .service-container, .portfolio-box, .contact f
 ScrollReveal().reveal('.home-content h1, about-img', { origin: 'left'});
 ScrollReveal().reveal('.home-content p, about-content', { origin: 'right'});
 
+window.addEventListener('DOMContentLoaded', () => {
+    const certificationContainer = document.querySelector('.certifications-container');
+    const certificationCount = certificationContainer.children.length;
+
+    if (certificationCount === 1) {
+        certificationContainer.style.setProperty('--certification-columns', '1');
+    } else if (certificationCount === 2) {
+        certificationContainer.style.setProperty('--certification-columns', '2');
+    } else {
+        certificationContainer.style.setProperty('--certification-columns', '3');
+    }
+});
+
 
 const typed = new Typed('.multiple-text', {
     strings:['Final Year CSE Student','Full Stack Developer','AI/ML Developer', 'Coding Lover'],
