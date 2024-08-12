@@ -360,14 +360,13 @@ span{
 .certifications-container {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* Ensure all items stretch to the same height */
+    align-items: stretch;
     flex-wrap: wrap;
     gap: 2rem;
 }
 
 .certification-box {
-    position: relative; /* Add relative positioning */
-    flex: 1 1 30rem;
+    flex: 1 1 calc(33.333% - 2rem); /* Ensures three boxes per row with gaps */
     background-color: var(--bg-color);
     border: .2rem solid var(--main-color);
     padding: 3rem;
@@ -377,7 +376,6 @@ span{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
 }
 
 .certification-box img {
@@ -395,13 +393,10 @@ span{
 .certification-box p {
     font-size: 1.6rem;
     margin-bottom: 2rem;
+    flex-grow: 1; /* Ensures the description takes available space */
 }
 
 .certification-box a {
-    position: absolute; /* Make the link button absolute positioned */
-    bottom: 1rem; /* Adjust the distance from the bottom */
-    left: 50%;
-    transform: translateX(-50%);
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -412,6 +407,8 @@ span{
     border-radius: 50%;
     font-size: 2rem;
     transition: 0.3s ease;
+    align-self: center; /* Centers the button horizontally */
+    margin-top: 2rem; /* Adds some space above the button */
 }
 
 .certification-box a:hover {
@@ -427,7 +424,7 @@ span{
     }
 
     .certification-box {
-        flex: 1 1 40rem;
+        flex: 1 1 calc(50% - 2rem); /* Two boxes per row on medium screens */
     }
 }
 
@@ -438,50 +435,69 @@ span{
     }
 
     .certification-box {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* One box per row on small screens */
     }
 }
 
 
-.contact h2{
+.contact {
+    background: var(--first-bg-color); /* Ensure the contact section has a different background */
+    color: var(--text-color);
+}
+
+.contact h2 {
     margin-bottom: 3rem;
 }
 
-.contact form{
+.contact form {
     max-width: 70rem;
     margin: 1rem auto;
     text-align: center;
-    margin-bottom: 3rem;
+    background: var(--second-bg-color); /* Different background for the form */
+    padding: 2rem; /* Add some padding */
+    border-radius: 1rem; /* Add border-radius for rounded corners */
 }
 
-.contact .form .input-box{
-    display : flex;
+.contact .form .input-box {
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .contact form .input-box input,
-.contact form textarea{
+.contact form textarea {
     width: 100%;
     padding: 1.5rem;
     font-size: 1.6rem;
     color: var(--text-color);
-    background: var(--second-bg-color);
+    background: var(--first-bg-color); /* Different background for the input fields */
     border-radius: .8rem;
     margin: .7rem 0;
+    border: .1rem solid var(--main-color); /* Add a border to distinguish the input fields */
 }
-.contact form .input-box input{
+
+.contact form .input-box input {
     width: 49%;
 }
 
-.contact form textarea{
+.contact form textarea {
     resize: none;
 }
 
-.contact form .btn{
+.contact form .btn {
     margin-top: 2rem;
     cursor: pointer;
 }
+
+/* Responsive Design */
+
+@media (max-width: 450px) {
+    .contact form .input-box input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
 
 .footer{
     display: flex;
@@ -489,7 +505,7 @@ span{
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem 9%;
-    background: var(--second-bg-color);
+    background: var(--first-bg-color);
 }
 
 .footer-text{
@@ -635,7 +651,7 @@ span{
     }
 }
 
-@media (max-width: 450px){
+/* @media (max-width: 450px){
     html{
         font-size: 50%;
     }
@@ -644,7 +660,7 @@ span{
         width: 100%;
         box-sizing: border-box;
     }
-}
+} */
 
 @media (max-width: 365px){
     .home-image img{
