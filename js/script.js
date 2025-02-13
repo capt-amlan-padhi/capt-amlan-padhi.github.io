@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 const typed = new Typed('.multiple-text', {
-    strings:['Final Year CSE Student','Full Stack Developer','AI/ML Developer', 'Coding Lover'],
+    strings:['B. Tech. CSE Graduate','ML Developer', 'AI Enthusiast'],
     typeSpeed:100,
     backSpeed:100,
     backdelay:1000,
